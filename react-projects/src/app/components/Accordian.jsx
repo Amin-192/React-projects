@@ -2,6 +2,7 @@
 import data from "../pages/data"
 import React from 'react'
 import { useState } from 'react'
+
 export default function Accordian() {
   const [selected, setSelected] = useState(null);
 
@@ -16,7 +17,12 @@ export default function Accordian() {
     <div>
     {data && data.length > 0 ? (
       data.map((item, i) => (
-        <div key={item.id} className="border-b-2 p-3">
+        <div
+          key={item.id}
+          className={`border-b-2 p-3 ${
+            selected === i ? "border-pink-500 border shadow-2xl rounded-2xl" : "border-gray-300"
+          }`}
+        >
           <div
             className="cursor-pointer text-lg font-semibold"
             onClick={() => toggle(i)}
